@@ -1,6 +1,7 @@
 # Send File
+Seamless Share: Empowering Offline PC-to-PC File Transfer
 
-File sharing application
+_⚠️ Some features are missing since the application is still in development, see the [issues](https://github.com/opeolluwa/send-file/issues) page to contribute_
 
 ![screenshot](screenshots/home-light.png)
 
@@ -16,7 +17,7 @@ File sharing application
 
 ## Description
 
-An offline seamless file-sharing application for Windows, Mac and Linux operating system
+An offline seamless file-sharing application for Windows, Mac, and Linux operating system
 
 ## Getting Started
 
@@ -24,7 +25,7 @@ The following are required to run the application in development
 
 - [Node.js](https://nodejs.org) - The JavaScript Runtime environment
 - [Yarn](https://yarnpkg.com/) - A fast, secure and reliable package manager for Node.js
-- [Rust v1.67 or greater](rust-lang.org/) - A language empowering everyone
+- [Rust v1.70 or greater](rust-lang.org/) - A language empowering everyone
   to build reliable and efficient software.
 
 In addition, this project uses Tauri v1.3, see [prerequisite](https://tauri.app/v1/guides/getting-started/prerequisites/) for your operating system.
