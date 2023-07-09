@@ -4,13 +4,11 @@ use crate::utils::system_info::SystemInformation;
 use nanoid::nanoid;
 use serde::{Deserialize, Serialize};
 
-pub mod create_ap;
 pub mod ip_manager;
 pub mod linux_hotspot;
 pub mod mac_hotspot;
 pub mod wifi_scanner;
 pub mod windows_hotspot;
-pub mod connect_with_qr_code;
 /// the network interface type contains the
 /// - gateway ex 192.168.0.0.1
 /// - username ex sillicone
@@ -19,7 +17,7 @@ pub mod connect_with_qr_code;
 /// - (optional) the network card frequency, e.g 2.4GHz or 5Ghz
 /// it will be used to communicate with the application interface
 #[derive(Debug, Serialize, Deserialize, Default)]
-pub struct AccessPointInterface {
+pub struct WifiHotspotConfig {
     /// the network broadcast ip address
     gateway: String,
     /// the network name (generates)
@@ -32,14 +30,14 @@ pub struct AccessPointInterface {
     message: Option<String>,
 }
 
-/// network was successfully creatd or there is an error
-#[derive(Debug, Serialize, Deserialize,)]
+/// network was successfully created or there is an error
+#[derive(Debug, Serialize, Deserialize)]
 pub enum NetworkAccessStatus {
     Created,
     Error,
 }
 
-impl AccessPointInterface {
+impl WifiHotspotConfig {
     pub fn new(gateway: &str) -> Self {
         let SystemInformation {
             system_name: ssid, ..
@@ -84,7 +82,7 @@ impl AccessPointInterface {
     }
 }
 
-// impl std::default::Default for AccessPointInterface {
+// impl std::default::Default for WifiHotspotConfig {
 //     fn default() -> Self {
 //         Self {
 //             gateway: String::from("0.0.0.0"),
@@ -93,7 +91,7 @@ impl AccessPointInterface {
 //     }
 // }
 
-impl fmt::Display for AccessPointInterface {
+impl fmt::Display for WifiHotspotConfig {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         write!(
             f,
